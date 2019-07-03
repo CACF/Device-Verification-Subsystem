@@ -114,12 +114,11 @@ make start-dev
 ```bash
 make start-celery
 ```
-
+**Note:** Make sure the system is deployed using above mentioned steps before running unit tests.
 * To run unit tests, run
 ```bash
 $ make test
-```
-**Note:** Make sure the system is deployed using above mentioned steps before running unit tests. 
+``` 
 
 * To lint the code using pylint, simply run:
 
