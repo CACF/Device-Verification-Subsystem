@@ -66,6 +66,8 @@ start-celery:
 
 start-dev:
 	pip3 install -r requirements.txt
+	pip3 uninstall webargs
+	pip3 install webargs==3.0.1
 	python3 run.py
 
 lint:
