@@ -77,11 +77,11 @@ def app(tmpdir_factory):
     celery.conf.update(app_.config)
 
     # update configuration file path
-    global_config = yaml.load(open(path.abspath(path.dirname(__file__) + "/unittest_data/config.yml")))
+    global_config = yaml.safe_load(open(path.abspath(path.dirname(__file__) + "/unittest_data/config.yml")))
     app_.config['system_config'] = global_config
 
     # update conditions file path
-    conditions = yaml.load(open(path.abspath(path.dirname(__file__)+"/unittest_data/conditions.yml")))
+    conditions = yaml.safe_load(open(path.abspath(path.dirname(__file__)+"/unittest_data/conditions.yml")))
     app_.config['conditions'] = conditions
 
     config = configparser.ConfigParser()
@@ -128,6 +128,7 @@ def db(app):
     yield db
 
     # teardown database
+    db.session.remove()
     db.drop_all()
 
 
