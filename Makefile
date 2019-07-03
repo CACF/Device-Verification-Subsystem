@@ -66,23 +66,24 @@ start-celery:
 
 start-dev:
 	pip3 install -r requirements.txt
-	pip3 uninstall webargs
 	pip3 install webargs==3.0.1
 	python3 run.py
 
 lint:
-	-pip install pylint
-	-pylint --verbose app/* tests/* run.py
+	pip install pylint
+	pylint --verbose app/* tests/* run.py
 
 test:
-	-pip3 install -r test_requirements.txt
-	-pytest -v
+	pip3 install -r requirements.txt
+	pip3 install webargs==3.0.1
+	pip3 install -r test_requirements.txt
+	pytest -v
 
 install-db:
-	-python3 manage.py db init
-	-python3 manage.py db migrate
-	-python3 manage.py db upgrade
+	python3 manage.py db init
+	python3 manage.py db migrate
+	python3 manage.py db upgrade
 
 upgrade-db:
-	-python3 manage.py db migrate
-	-python3 manage.py db upgrade
+	python3 manage.py db migrate
+	python3 manage.py db upgrade

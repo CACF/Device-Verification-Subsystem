@@ -114,7 +114,7 @@ make start-dev
 ```bash
 make start-celery
 ```
-**Note:** Make sure the system is deployed using above mentioned steps before running unit tests.
+**Note:** Make sure the system is deployed using above mentioned steps before running unit tests. Moreover, you'd require another user other than root user to run unit tests.
 * To run unit tests, run
 ```bash
 $ make test
