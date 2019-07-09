@@ -125,6 +125,8 @@ Execute the following command to compile any change/update in language compiled 
 pybabel compile -d app/translations
 ```
 
+To run the system use following commands,
+
 * Start DVS development server using:
 ```bash
 make start-dev
@@ -134,17 +136,13 @@ make start-dev
 ```bash
 make start-celery
 ```
+
 **Note:** Make sure the system is deployed using above mentioned steps before running unit tests. Moreover, you'd require another user other than root user to run unit tests.
 * To run unit tests, run
 ```bash
 $ make test
 ``` 
 
-* To lint the code using pylint, simply run:
-
-```bash
-make lint
-```
 ###Other useful commands
 
 * To install a fresh database:
@@ -157,4 +155,9 @@ make install-db
 
 ```bash
 make upgrade-db
+```
+* To lint the code using pylint, simply run:
+
+```bash
+make lint
 ```
