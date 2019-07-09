@@ -52,7 +52,6 @@ This repository contains code for **DVS** part of the **DIRBS**. It contains
 
 * ``app/`` -- The DVS core server app, to be used as DVS Web Server including apis and resources
 * ``etc/`` -- Config files etc to be reside here
-* ``mock/`` -- Sample data files etc which are used in app to be reside here
 * ``tests/`` -- Unit test scripts and Data
 
 ##### Prerequisites
@@ -82,7 +81,7 @@ Make sure the virtual environment is made using python3
 
 * Replace sample configuration in config.ini to similar configuration in tests/unittest_data/config.ini
 
-* Replace sample conditions in etc/conditions.yml to classification conditions configured in DIRBS core system
+* Update classification conditions in etc/conditions.yml similar to conditions configured in DIRBS core system
 
 * Create /reports folder in root directory
 
@@ -100,7 +99,28 @@ make install-db
 
 This will automatically create and migrate database schemas and requirements.
 
-* Compile multi language encoded files
+For first time deployment use following commands to initialize multi language support
+
+* To generate language compiled files, run
+```bash
+pybabel compile -d app/translations
+```
+
+To add new language follow the following steps,
+
+* Create new language folder, run
+```bash
+pybabel init -i messages.pot -d app/translations -l <language-code>
+``` 
+
+* Translate messages in desired language and run compilation command
+```bash
+pybabel compile -d app/translations
+```
+
+Execute the following command to compile any change/update in language compiled files
+
+* Generate multi language compiled files
 ```bash
 pybabel compile -d app/translations
 ```

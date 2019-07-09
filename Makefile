@@ -78,6 +78,9 @@ test:
 	pip3 install webargs==3.0.1
 	pip3 install -r test_requirements.txt
 	pytest -v
+	pip3 uninstall -y -r requirements.txt
+	pip3 uninstall -y -r test_requirements.txt 
+	
 
 install-db:
 	python3 manage.py db init
