@@ -86,6 +86,12 @@ Make sure the virtual environment is made using python3
 
 * Create /reports folder in root directory
 
+* Install requirements
+
+```bash
+pip3 install -r requirements.txt
+```
+
 * Run Database migrations using:
 
 ```bash
@@ -104,15 +110,15 @@ pybabel compile -d app/translations
 make start-dev
 ```
 
-* Start celery worker
+* Open new terminal window and run the following command to start celery worker
 ```bash
 make start-celery
 ```
-
+**Note:** Make sure the system is deployed using above mentioned steps before running unit tests.
 * To run unit tests, run
 ```bash
 $ make test
-```
+``` 
 
 * To lint the code using pylint, simply run:
 
