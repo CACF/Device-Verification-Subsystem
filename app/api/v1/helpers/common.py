@@ -130,7 +130,7 @@ class CommonResources:
     def get_imei(imei):
         """Return IMEI response obtained from DIRBS core."""
 
-        imei_url = requests.get('{base}/{version}/imei/{imei}'.format(base=app.config['dev_config']['dirbs_core']['BaseUrl'], version=app.config['dev_config']['dirbs_core']['Version'], imei=imei))  # dirbs core imei api call
+        imei_url = requests.get('{base}/{version}/imei/{imei}?include_stolen_status=true&include_registration_status=true'.format(base=app.config['dev_config']['dirbs_core']['BaseUrl'], version=app.config['dev_config']['dirbs_core']['Version'], imei=imei))  # dirbs core imei api call
         try:
             if imei_url.status_code == 200:
                 response = imei_url.json()

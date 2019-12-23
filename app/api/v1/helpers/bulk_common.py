@@ -113,7 +113,9 @@ class BulkCommonResources:
                 try:
                     if imei:
                         batch_req = {
-                            "imeis": imei
+                            "imeis": imei,
+                            "include_registration_status": True,
+                            "include_stolen_status": True
                         }
                         headers = {'content-type': 'application/json', 'charset': 'utf-8', 'keep_alive': 'false'}
                         imei_response = session.post('{}/{}/imei-batch'.format(app.config['dev_config']['dirbs_core']['BaseUrl'], app.config['dev_config']['dirbs_core']['Version']),
